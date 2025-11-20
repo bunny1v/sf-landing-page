@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill Factorial - Master Your Tech Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <script src="https://unpkg.com/heroicons"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: #0a0a0f;
+        overflow-x: hidden;
+      }
+
+      /* Utility Classes */
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glow {
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
+      }
+
+      /* Animations */
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+        }
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+        animation: blobMove 20s ease-in-out infinite;
+      }
+
+      @keyframes blobMove {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(50px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-50px, 50px) scale(0.9);
+        }
+      }
+
+      .skill-icon {
+        transition: all 0.3s ease;
+      }
+
+      .skill-icon:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+    </style>
+  </head>
+  <body class="text-white">
+    <div
+      class="blob"
+      style="
+        width: 400px;
+        height: 400px;
+        background: #667eea;
+        top: -200px;
+        left: -200px;
+      "
+    ></div>
+    <div
+      class="blob"
+      style="
+        width: 500px;
+        height: 500px;
+        background: #764ba2;
+        top: 50%;
+        right: -250px;
+      "
+    ></div>
+    <div
+      class="blob"
+      style="
+        width: 350px;
+        height: 350px;
+        background: #f093fb;
+        bottom: -175px;
+        left: 30%;
+      "
+    ></div>
+
+    <nav class="glass fixed w-full z-50 top-0">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="text-2xl font-bold gradient-text">Skill Factorial</div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#features" class="hover:text-purple-400 transition"
+            >Features</a
+          >
+          <a href="#courses" class="hover:text-purple-400 transition"
+            >Courses</a
+          >
+          <a href="#placement" class="hover:text-purple-400 transition"
+            >Placement Prep</a
+          >
+          <a href="#pricing" class="hover:text-purple-400 transition"
+            >Pricing</a
+          >
+          <a href="#contact" class="hover:text-purple-400 transition"
+            >Contact</a
+          >
+          <button
+            class="gradient-bg px-6 py-2 rounded-full hover:opacity-90 transition cta-redirect"
+          >
+            Get Started
+          </button>
+        </div>
+
+        <button
+          id="menu-button"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden md:hidden"
+    >
+      <div class="glass w-64 h-full absolute right-0 top-0 p-6 shadow-xl">
+        <div class="flex justify-end">
+          <button id="close-button" class="text-white focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-col space-y-6 mt-8">
+          <a
+            href="#features"
+            class="text-xl hover:text-purple-400 transition mobile-nav-link"
+            >Features</a
+          >
+          <a
+            href="#courses"
+            class="text-xl hover:text-purple-400 transition mobile-nav-link"
+            >Courses</a
+          >
+          <a
+            href="#placement"
+            class="text-xl hover:text-purple-400 transition mobile-nav-link"
+            >Placement Prep</a
+          >
+          <a
+            href="#pricing"
+            class="text-xl hover:text-purple-400 transition mobile-nav-link"
+            >Pricing</a
+          >
+          <a
+            href="#contact"
+            class="text-xl hover:text-purple-400 transition mobile-nav-link"
+            >Contact</a
+          >
+          <button
+            class="gradient-bg px-6 py-3 rounded-full text-xl font-semibold hover:opacity-90 transition cta-redirect mt-4"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section class="relative pt-32 pb-20 px-6">
+      <div class="container mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in order-2 md:order-1">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+              Master Tech Skills<br />
+              <span class="gradient-text">In Just 30 Days</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+              Transform your career with intensive bootcamps, interactive
+              quizzes, and real-world capstone projects. Built for students and
+              professionals.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="gradient-bg px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition pulse-glow cta-redirect"
+              >
+                Start Learning at ₹499 →
+              </button>
+              <button
+                class="glass px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
+              >
+                Watch Demo
+              </button>
+            </div>
+          </div>
+
+          <div class="relative floating order-1 md:order-2 mb-12 md:mb-0">
+            <div class="glass rounded-3xl overflow-hidden glow">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+                alt="Students learning together"
+                class="w-full h-auto"
+              />
+            </div>
+            <div class="absolute -bottom-6 -left-6 glass p-4 rounded-2xl">
+              <div class="text-3xl font-bold gradient-text">10K+</div>
+              <div class="text-sm text-gray-400">Happy Learners</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+          <div class="glass p-6 rounded-2xl card-hover">
+            <div class="text-4xl font-bold gradient-text">10K+</div>
+            <div class="text-gray-400 mt-2">Students</div>
+          </div>
+          <div class="glass p-6 rounded-2xl card-hover">
+            <div class="text-4xl font-bold gradient-text">15+</div>
+            <div class="text-gray-400 mt-2">Courses</div>
+          </div>
+          <div class="glass p-6 rounded-2xl card-hover">
+            <div class="text-4xl font-bold gradient-text">95%</div>
+            <div class="text-gray-400 mt-2">Success Rate</div>
+          </div>
+          <div class="glass p-6 rounded-2xl card-hover">
+            <div class="text-4xl font-bold gradient-text">24/7</div>
+            <div class="text-gray-400 mt-2">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
+          Why Choose <span class="gradient-text">Skill Factorial</span>
+        </h2>
+        <p class="text-center text-gray-400 text-xl mb-16">
+          Everything you need to excel in tech
+        </p>
+        <div
+          id="features-container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        ></div>
+      </div>
+    </section>
+
+    <section id="courses" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
+          Master <span class="gradient-text">In-Demand Skills</span>
+        </h2>
+        <p class="text-center text-gray-400 text-xl mb-16">
+          Choose from our comprehensive tech curriculum
+        </p>
+        <div
+          id="courses-container"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <section id="placement" class="py-20 px-6">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
+          Crack the Interview with
+          <span class="gradient-text">Placement Prep</span>
+        </h2>
+        <p class="text-center text-gray-400 text-xl mb-16">
+          Everything you need to land your dream job for just ₹499.
+        </p>
+        <div id="placement-container" class="max-w-3xl mx-auto"></div>
+      </div>
+    </section>
+
+    <section id="benefits" class="py-20 px-6">
+      <div class="container mx-auto">
+        <div
+          id="benefits-content"
+          class="grid md:grid-cols-2 gap-12 items-center"
+        ></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
+          Start Your Journey for <span class="gradient-text">₹499</span>
+        </h2>
+        <p class="text-center text-gray-400 text-xl mb-16">
+          Everything included. No hidden fees.
+        </p>
+        <div id="pricing-container" class="max-w-4xl mx-auto"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6">
+      <div class="container mx-auto max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+          Get in <span class="gradient-text">Touch</span>
+        </h2>
+        <p class="text-center text-gray-400 text-xl mb-12">
+          We'd love to hear from you
+        </p>
+        <div class="glass p-8 rounded-3xl mx-auto max-w-md">
+          <h3 class="text-2xl font-bold mb-6">Contact Details</h3>
+          <div id="contact-details" class="space-y-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 px-6 text-center text-gray-500">
+      <div class="container mx-auto">
+        <p>&copy; 2024 Skill Factorial. All rights reserved.</p>
+        <p class="mt-2 text-sm">Made with 💜 and Tailwind CSS.</p>
+      </div>
+    </footer>
+
+    <script>
+      const REDIRECT_URL = "https://lms.skillfactorial.com";
+
+      // --- Data Definitions (Same as before) ---
+      const features = [
+        {
+          emoji: "🚀",
+          title: "30-Day Bootcamps",
+          description:
+            "Intensive, structured learning paths that take you from basics to mastery in just one month. Every bootcamp includes hands-on projects and real-world applications.",
+        },
+        {
+          emoji: "🎯",
+          title: "Interactive Quizzes",
+          description:
+            "Test your knowledge, revise concepts faster, and track your progress. Our adaptive quizzes help you identify weak areas and reinforce learning.",
+        },
+        {
+          emoji: "💼",
+          title: "Capstone Projects",
+          description:
+            "Build portfolio-worthy projects that showcase your skills to employers. Get hands-on experience with industry-standard tools and frameworks.",
+        },
+        {
+          emoji: "💬",
+          title: "Doubt Solving",
+          description:
+            "Stuck on a concept? Our expert mentors are available 24/7 to help you overcome any challenge. Get personalized support when you need it.",
+        },
+        {
+          emoji: "📊",
+          title: "Skill Assessment",
+          description:
+            "Know exactly where you stand. Our comprehensive assessments help you understand your strengths and areas for improvement.",
+        },
+        {
+          emoji: "🎓",
+          title: "Certificates",
+          description:
+            "Earn industry-recognized certificates upon completion. Add them to your LinkedIn profile and stand out to recruiters.",
+        },
+      ];
+
+      const courses = [
+        { emoji: "🐍", name: "Python", subtitle: "Backend & AI" },
+        { emoji: "☕", name: "Java", subtitle: "Enterprise Apps" },
+        { emoji: "⚛️", name: "React JS", subtitle: "Modern Web" },
+        { emoji: "📱", name: "Flutter", subtitle: "Mobile Apps" },
+        { emoji: "🤖", name: "Machine Learning", subtitle: "AI Models" },
+        { emoji: "📊", name: "Data Science", subtitle: "Analytics" },
+        { emoji: "🧠", name: "AI", subtitle: "Deep Learning" },
+        { emoji: "🗄️", name: "SQL & NoSQL", subtitle: "Databases" },
+        { emoji: "🔗", name: "Node.js", subtitle: "Backend Dev" },
+        { emoji: "☁️", name: "Cloud & DevOps", subtitle: "AWS, Azure" },
+      ];
+
+      const contactInfo = {
+        details: [
+          {
+            emoji: "📧",
+            title: "Email",
+            text: "skillfactorial@gmail.com",
+            link: "mailto:skillfactorial@gmail.com",
+          },
+          {
+            emoji: "📞",
+            title: "Phone",
+            text: "+91 8778605825",
+            link: "tel:+918778605825",
+          },
+          {
+            emoji: "📱",
+            title: "Whatsapp",
+            text: "+91 9999999999",
+            link: "https://wa.me/919999999999",
+          },
+          {
+            emoji: "📍",
+            title: "Location",
+            text: "Skill Factorial, Near to Archid Tower, Baner, Pune-422045",
+            link: null,
+          },
+        ],
+      };
+
+      const benefits = {
+        image: {
+          src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
+          alt: "Learning analytics dashboard",
+        },
+        floatingBadge: { title: "3x Faster", subtitle: "Learning Speed" },
+        contentTitle:
+          'Why Our <span class="gradient-text">Quiz-Based Learning</span> Works',
+        points: [
+          {
+            emoji: "⚡",
+            title: "Rapid Concept Revision",
+            description:
+              "Cover entire topics in record time. Our quizzes help you revise complex concepts 3x faster than traditional methods.",
+          },
+          {
+            emoji: "🎯",
+            title: "Pinpoint Your Weaknesses",
+            description:
+              "Identify exactly where you need more practice. Our adaptive system tracks your performance and highlights improvement areas.",
+          },
+          {
+            emoji: "📈",
+            title: "Track Real Progress",
+            description:
+              "See your improvement over time with detailed analytics. Know exactly where you stand compared to peers.",
+          },
+          {
+            emoji: "🧠",
+            title: "Boost Retention",
+            description:
+              "Spaced repetition and active recall ensure you remember what you learn. Retain knowledge for the long term.",
+          },
+          {
+            emoji: "💪",
+            title: "Build Confidence",
+            description:
+              "Regular practice builds muscle memory and confidence. Walk into interviews knowing you've mastered the material.",
+          },
+          {
+            emoji: "🏆",
+            title: "Interview Ready",
+            description:
+              "Practice questions mirror real interview scenarios. Be prepared for technical assessments and coding challenges.",
+          },
+        ],
+      };
+
+      const pricing = {
+        isBestValue: true,
+        badgeText: "BEST VALUE",
+        title: "30-Day Bootcamp Package",
+        currentPrice: "₹499",
+        originalPrice: "₹4,999",
+        discountPercent: "90% OFF",
+        offerText: "Limited time offer - Expires soon!",
+        buttonText: "Enroll Now - Limited Seats",
+        footerNote: "⏰ 23 seats left | Offer expires in 48 hours",
+        features: [
+          "30-day intensive bootcamp access",
+          "Unlimited interactive quizzes",
+          "Hands-on capstone project",
+          "24/7 doubt solving support",
+          "Expert mentor guidance",
+          "Comprehensive skill assessments",
+          "Industry-recognized certificate",
+          "Lifetime access to materials",
+          "Career guidance & resume review",
+          "Private community access",
+        ],
+      };
+
+      const placementPrep = {
+        title: "Master Your Interviews",
+        currentPrice: "₹499",
+        buttonText: "Start Placement Prep →",
+        features: [
+          "100+ Data Structures & Algorithms (DSA) questions",
+          "Mock interviews with industry experts",
+          "Resume and LinkedIn profile optimization workshops",
+          "Behavioral interview Q&A bank",
+          "Company-specific interview guides (Google, Amazon, etc.)",
+          "Negotiation tactics and salary guidance",
+        ],
+      };
+
+      // --- Rendering Functions ---
+
+      function renderFeatures() {
+        const featuresContainer = document.getElementById("features-container");
+        featuresContainer.innerHTML = features
+          .map(
+            (feature) => `
+              <div class="glass p-8 rounded-3xl card-hover">
+                  <div class="text-5xl mb-4">${feature.emoji}</div>
+                  <h3 class="text-2xl font-bold mb-3">${feature.title}</h3>
+                  <p class="text-gray-400">${feature.description}</p>
+              </div>
+            `
+          )
+          .join("");
+      }
+
+      function renderBenefits() {
+        const container = document.getElementById("benefits-content");
+        if (!container) return;
+
+        const imageSection = `
+              <div class="relative order-2 md:order-1">
+                  <div class="glass rounded-3xl overflow-hidden glow">
+                      <img
+                          src="${benefits.image.src}"
+                          alt="${benefits.image.alt}"
+                          class="w-full h-auto"
+                          onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/a855f7?text=Data+Analytics+Dashboard';"
+                      />
+                  </div>
+                  <div class="absolute -top-6 -right-6 glass p-6 rounded-2xl floating hidden sm:block">
+                      <div class="text-2xl font-bold gradient-text">${benefits.floatingBadge.title}</div>
+                      <div class="text-sm text-gray-400">${benefits.floatingBadge.subtitle}</div>
+                  </div>
+              </div>
+          `;
+
+        const contentPoints = benefits.points
+          .map(
+            (point) => `
+                        <div class="flex gap-4 items-start">
+                            <div class="text-3xl">${point.emoji}</div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">${point.title}</h3>
+                                <p class="text-gray-400">${point.description}</p>
+                            </div>
+                        </div>
+                    `
+          )
+          .join("");
+
+        const contentSection = `
+              <div class="glass p-8 md:p-12 rounded-3xl order-1 md:order-2">
+                  <h2 class="text-4xl md:text-5xl font-bold mb-8">${benefits.contentTitle}</h2>
+                  <div class="space-y-6">${contentPoints}</div>
+              </div>
+          `;
+        container.innerHTML = contentSection + imageSection;
+      }
+
+      function renderPricing() {
+        const pricingContainer = document.getElementById("pricing-container");
+        const half = Math.ceil(pricing.features.length / 2);
+        const col1Features = pricing.features.slice(0, half);
+        const col2Features = pricing.features.slice(half);
+
+        const renderFeaturesList = (features) =>
+          features
+            .map(
+              (feature) => `
+              <div class="flex items-start gap-3">
+                  <span class="text-green-400 text-xl">✓</span>
+                  <span>${feature}</span>
+              </div>
+            `
+            )
+            .join("");
+
+        pricingContainer.innerHTML = `
+          <div class="glass p-8 sm:p-10 rounded-3xl glow relative overflow-hidden">
+              ${
+                pricing.isBestValue
+                  ? `<div class="absolute top-0 right-0 gradient-bg text-white px-6 py-2 rounded-bl-3xl font-bold">${pricing.badgeText}</div>`
+                  : ""
+              }
+              <div class="text-center mb-8">
+                  <h3 class="text-3xl font-bold mb-4">${pricing.title}</h3>
+                  <div class="flex flex-wrap items-center justify-center gap-4">
+                      <span class="text-5xl font-black gradient-text">${
+                        pricing.currentPrice
+                      }</span>
+                      <span class="text-gray-500 line-through text-2xl">${
+                        pricing.originalPrice
+                      }</span>
+                      <span class="gradient-bg px-4 py-2 rounded-full text-sm font-bold">${
+                        pricing.discountPercent
+                      }</span>
+                  </div>
+                  <p class="text-gray-400 mt-4">${pricing.offerText}</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="space-y-4">${renderFeaturesList(
+                    col1Features
+                  )}</div>
+                  <div class="space-y-4">${renderFeaturesList(
+                    col2Features
+                  )}</div>
+              </div>
+
+              <div class="text-center mt-10">
+                  <button class="gradient-bg px-12 py-4 rounded-full text-xl font-bold hover:scale-105 transition pulse-glow w-full sm:w-auto cta-redirect">
+                      ${pricing.buttonText}
+                  </button>
+                  <p class="text-sm text-gray-400 mt-4">${
+                    pricing.footerNote
+                  }</p>
+              </div>
+          </div>
+        `;
+      }
+
+      // New: Render Placement Prep Section
+      function renderPlacement() {
+        const container = document.getElementById("placement-container");
+
+        const featuresHTML = placementPrep.features
+          .map(
+            (feature) => `
+              <div class="flex items-start gap-3">
+                  <span class="text-pink-400 text-xl">★</span>
+                  <span>${feature}</span>
+              </div>
+          `
+          )
+          .join("");
+
+        container.innerHTML = `
+              <div class="glass p-8 sm:p-10 rounded-3xl glow border-4 border-purple-500/50">
+                  <div class="text-center mb-8">
+                      <h3 class="text-4xl font-bold mb-4">${placementPrep.title}</h3>
+                      <span class="text-5xl font-black gradient-text">${placementPrep.currentPrice}</span>
+                      <p class="text-gray-400 mt-4">One-time payment for complete preparation access.</p>
+                  </div>
+
+                  <div class="space-y-4 mb-10">
+                      ${featuresHTML}
+                  </div>
+
+                  <div class="text-center mt-10">
+                      <button class="gradient-bg px-12 py-4 rounded-full text-xl font-bold hover:scale-105 transition pulse-glow w-full sm:w-auto cta-redirect">
+                          ${placementPrep.buttonText}
+                      </button>
+                  </div>
+              </div>
+          `;
+      }
+
+      function renderCourses() {
+        const coursesContainer = document.getElementById("courses-container");
+        coursesContainer.innerHTML = courses
+          .map(
+            (course) => `
+                        <div class="glass p-6 rounded-2xl text-center card-hover skill-icon">
+                            <div class="text-5xl mb-3">${course.emoji}</div>
+                            <h4 class="font-bold text-lg">${course.name}</h4>
+                            <p class="text-sm text-gray-400 mt-2">${course.subtitle}</p>
+                        </div>
+                    `
+          )
+          .join("");
+      }
+
+      function renderContactInfo() {
+        const contactContainer = document.getElementById("contact-details");
+        contactContainer.innerHTML = contactInfo.details
+          .map(
+            (detail) => `
+                        <div class="flex items-start gap-4">
+                            <span class="text-3xl">${detail.emoji}</span>
+                            <div>
+                                <div class="font-semibold">${detail.title}</div>
+                                ${
+                                  detail.link
+                                    ? `<a href="${detail.link}" class="text-purple-400 hover:text-purple-300 transition">${detail.text}</a>`
+                                    : `<div class="text-gray-400">${detail.text}</div>`
+                                }
+                            </div>
+                        </div>
+                    `
+          )
+          .join("");
+      }
+
+      // --- Interaction Logic ---
+
+      // 1. CTA Redirect Handler
+      function setupCTARedirects() {
+        const ctaButtons = document.querySelectorAll(".cta-redirect");
+        ctaButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            window.location.href = REDIRECT_URL;
+          });
+        });
+      }
+
+      // 2. Mobile Menu Handler (Hamburger)
+      function setupMobileMenu() {
+        const menuButton = document.getElementById("menu-button");
+        const closeButton = document.getElementById("close-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+        const toggleMenu = () => {
+          mobileMenu.classList.toggle("hidden");
+          document.body.classList.toggle("overflow-hidden"); // Prevent scrolling when menu is open
+        };
+
+        menuButton.addEventListener("click", toggleMenu);
+        closeButton.addEventListener("click", toggleMenu);
+
+        // Close menu when a link is clicked
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", toggleMenu);
+        });
+      }
+
+      // Consolidated DOMContentLoaded listener
+      document.addEventListener("DOMContentLoaded", function () {
+        renderCourses();
+        renderContactInfo();
+        renderPricing();
+        renderFeatures();
+        renderBenefits();
+        renderPlacement(); // New section rendering
+
+        // Interaction setup
+        setupCTARedirects();
+        setupMobileMenu();
+      });
+    </script>
+  </body>
+</html>
