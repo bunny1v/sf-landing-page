@@ -15,9 +15,15 @@
         font-family: "Inter", sans-serif;
       }
 
+      /* FIX: Apply robust overflow suppression to prevent horizontal scroll */
+      /* Note: We keep this to ensure no other content causes issues */
+      html,
+      body {
+        overflow-x: hidden !important;
+      }
+
       body {
         background: #0a0a0f;
-        overflow-x: hidden;
       }
 
       /* Utility Classes */
@@ -148,7 +154,10 @@
         height: 500px;
         background: #764ba2;
         top: 50%;
-        right: -250px;
+        right: 0; /* Anchor the right edge to the viewport edge */
+        transform: translateX(
+          50%
+        ); /* Shift it 50% of its own width (250px) to the right */
       "
     ></div>
     <div
@@ -166,7 +175,28 @@
       <div
         class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <div class="text-2xl font-bold gradient-text">Skill Factorial</div>
+        <div class="flex items-center space-x-4">
+          <button
+            id="menu-button"
+            class="md:hidden text-white focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+          <div class="text-2xl font-bold gradient-text">Skill Factorial</div>
+        </div>
 
         <div class="hidden md:flex space-x-8 items-center">
           <a href="#features" class="hover:text-purple-400 transition"
@@ -174,9 +204,6 @@
           >
           <a href="#courses" class="hover:text-purple-400 transition"
             >Courses</a
-          >
-          <a href="#placement" class="hover:text-purple-400 transition"
-            >Placement Prep</a
           >
           <a href="#pricing" class="hover:text-purple-400 transition"
             >Pricing</a
@@ -191,25 +218,7 @@
           </button>
         </div>
 
-        <button
-          id="menu-button"
-          class="md:hidden text-white focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
+        <div class="md:hidden"></div>
       </div>
     </nav>
 
@@ -217,7 +226,7 @@
       id="mobile-menu"
       class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden md:hidden"
     >
-      <div class="glass w-64 h-full absolute right-0 top-0 p-6 shadow-xl">
+      <div class="glass w-64 h-full absolute left-0 top-0 p-6 shadow-xl">
         <div class="flex justify-end">
           <button id="close-button" class="text-white focus:outline-none">
             <svg
@@ -276,24 +285,19 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="fade-in order-2 md:order-1">
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              Master Tech Skills<br />
+              Master Skills<br />
               <span class="gradient-text">In Just 30 Days</span>
             </h1>
             <p class="text-xl text-gray-300 mb-8">
               Transform your career with intensive bootcamps, interactive
               quizzes, and real-world capstone projects. Built for students and
-              professionals.
+              working professionals.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button
                 class="gradient-bg px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition pulse-glow cta-redirect"
               >
-                Start Learning at ₹499 →
-              </button>
-              <button
-                class="glass px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
-              >
-                Watch Demo
+                Start Learning at ₹999 →
               </button>
             </div>
           </div>
@@ -307,13 +311,13 @@
               />
             </div>
             <div class="absolute -bottom-6 -left-6 glass p-4 rounded-2xl">
-              <div class="text-3xl font-bold gradient-text">10K+</div>
-              <div class="text-sm text-gray-400">Happy Learners</div>
+              <div class="text-3xl font-bold gradient-text">Happy</div>
+              <div class="text-sm text-gray-400">Learners</div>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
           <div class="glass p-6 rounded-2xl card-hover">
             <div class="text-4xl font-bold gradient-text">10K+</div>
             <div class="text-gray-400 mt-2">Students</div>
@@ -323,14 +327,14 @@
             <div class="text-gray-400 mt-2">Courses</div>
           </div>
           <div class="glass p-6 rounded-2xl card-hover">
-            <div class="text-4xl font-bold gradient-text">95%</div>
-            <div class="text-gray-400 mt-2">Success Rate</div>
+            <div class="text-4xl font-bold gradient-text">100%</div>
+            <div class="text-gray-400 mt-2">Assured Success Rate</div>
           </div>
           <div class="glass p-6 rounded-2xl card-hover">
             <div class="text-4xl font-bold gradient-text">24/7</div>
             <div class="text-gray-400 mt-2">Support</div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -364,19 +368,6 @@
       </div>
     </section>
 
-    <section id="placement" class="py-20 px-6">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
-          Crack the Interview with
-          <span class="gradient-text">Placement Prep</span>
-        </h2>
-        <p class="text-center text-gray-400 text-xl mb-16">
-          Everything you need to land your dream job for just ₹499.
-        </p>
-        <div id="placement-container" class="max-w-3xl mx-auto"></div>
-      </div>
-    </section>
-
     <section id="benefits" class="py-20 px-6">
       <div class="container mx-auto">
         <div
@@ -389,7 +380,7 @@
     <section id="pricing" class="py-20 px-6">
       <div class="container mx-auto">
         <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
-          Start Your Journey for <span class="gradient-text">₹499</span>
+          Start Your Journey for <span class="gradient-text">₹999</span>
         </h2>
         <p class="text-center text-gray-400 text-xl mb-16">
           Everything included. No hidden fees.
@@ -413,7 +404,7 @@
       </div>
     </section>
 
-    <footer class="py-10 px-6 text-center text-gray-500">
+    <footer class="py-10 px-6 text-center text-gray-500 glass">
       <div class="container mx-auto">
         <p>&copy; 2024 Skill Factorial. All rights reserved.</p>
         <p class="mt-2 text-sm">Made with 💜 and Tailwind CSS.</p>
@@ -421,7 +412,7 @@
     </footer>
 
     <script>
-      const REDIRECT_URL = "https://lms.skillfactorial.com";
+      const REDIRECT_URL = "https://learn.skillfactorial.com";
 
       // --- Data Definitions (Same as before) ---
       const features = [
@@ -510,7 +501,7 @@
           src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
           alt: "Learning analytics dashboard",
         },
-        floatingBadge: { title: "3x Faster", subtitle: "Learning Speed" },
+        floatingBadge: { title: "Faster", subtitle: "Learning" },
         contentTitle:
           'Why Our <span class="gradient-text">Quiz-Based Learning</span> Works',
         points: [
@@ -518,7 +509,7 @@
             emoji: "⚡",
             title: "Rapid Concept Revision",
             description:
-              "Cover entire topics in record time. Our quizzes help you revise complex concepts 3x faster than traditional methods.",
+              "Cover entire topics in record time. Our quizzes help you revise complex concepts faster than traditional methods.",
           },
           {
             emoji: "🎯",
@@ -557,12 +548,12 @@
         isBestValue: true,
         badgeText: "BEST VALUE",
         title: "30-Day Bootcamp Package",
-        currentPrice: "₹499",
-        originalPrice: "₹4,999",
-        discountPercent: "90% OFF",
+        currentPrice: "₹999",
+        originalPrice: "₹2,000",
+        discountPercent: "50% OFF",
         offerText: "Limited time offer - Expires soon!",
         buttonText: "Enroll Now - Limited Seats",
-        footerNote: "⏰ 23 seats left | Offer expires in 48 hours",
+        footerNote: "⏰ only few seats left | Offer expires soon",
         features: [
           "30-day intensive bootcamp access",
           "Unlimited interactive quizzes",
@@ -574,20 +565,6 @@
           "Lifetime access to materials",
           "Career guidance & resume review",
           "Private community access",
-        ],
-      };
-
-      const placementPrep = {
-        title: "Master Your Interviews",
-        currentPrice: "₹499",
-        buttonText: "Start Placement Prep →",
-        features: [
-          "100+ Data Structures & Algorithms (DSA) questions",
-          "Mock interviews with industry experts",
-          "Resume and LinkedIn profile optimization workshops",
-          "Behavioral interview Q&A bank",
-          "Company-specific interview guides (Google, Amazon, etc.)",
-          "Negotiation tactics and salary guidance",
         ],
       };
 
@@ -714,42 +691,6 @@
         `;
       }
 
-      // New: Render Placement Prep Section
-      function renderPlacement() {
-        const container = document.getElementById("placement-container");
-
-        const featuresHTML = placementPrep.features
-          .map(
-            (feature) => `
-              <div class="flex items-start gap-3">
-                  <span class="text-pink-400 text-xl">★</span>
-                  <span>${feature}</span>
-              </div>
-          `
-          )
-          .join("");
-
-        container.innerHTML = `
-              <div class="glass p-8 sm:p-10 rounded-3xl glow border-4 border-purple-500/50">
-                  <div class="text-center mb-8">
-                      <h3 class="text-4xl font-bold mb-4">${placementPrep.title}</h3>
-                      <span class="text-5xl font-black gradient-text">${placementPrep.currentPrice}</span>
-                      <p class="text-gray-400 mt-4">One-time payment for complete preparation access.</p>
-                  </div>
-
-                  <div class="space-y-4 mb-10">
-                      ${featuresHTML}
-                  </div>
-
-                  <div class="text-center mt-10">
-                      <button class="gradient-bg px-12 py-4 rounded-full text-xl font-bold hover:scale-105 transition pulse-glow w-full sm:w-auto cta-redirect">
-                          ${placementPrep.buttonText}
-                      </button>
-                  </div>
-              </div>
-          `;
-      }
-
       function renderCourses() {
         const coursesContainer = document.getElementById("courses-container");
         coursesContainer.innerHTML = courses
@@ -788,7 +729,6 @@
 
       // --- Interaction Logic ---
 
-      // 1. CTA Redirect Handler
       function setupCTARedirects() {
         const ctaButtons = document.querySelectorAll(".cta-redirect");
         ctaButtons.forEach((button) => {
@@ -798,7 +738,6 @@
         });
       }
 
-      // 2. Mobile Menu Handler (Hamburger)
       function setupMobileMenu() {
         const menuButton = document.getElementById("menu-button");
         const closeButton = document.getElementById("close-button");
@@ -807,13 +746,13 @@
 
         const toggleMenu = () => {
           mobileMenu.classList.toggle("hidden");
-          document.body.classList.toggle("overflow-hidden"); // Prevent scrolling when menu is open
+          // Toggling overflow-hidden on body stops the background content from scrolling when the menu is open
+          document.body.classList.toggle("overflow-hidden");
         };
 
         menuButton.addEventListener("click", toggleMenu);
         closeButton.addEventListener("click", toggleMenu);
 
-        // Close menu when a link is clicked
         mobileNavLinks.forEach((link) => {
           link.addEventListener("click", toggleMenu);
         });
@@ -826,7 +765,6 @@
         renderPricing();
         renderFeatures();
         renderBenefits();
-        renderPlacement(); // New section rendering
 
         // Interaction setup
         setupCTARedirects();
