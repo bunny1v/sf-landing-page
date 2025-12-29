@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skill Factorial - Master Your Tech Skills</title>
+    <title>Skill Factorial - Quiz-Based Tech Practice</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <script src="https://unpkg.com/heroicons"></script>
@@ -15,8 +15,6 @@
         font-family: "Inter", sans-serif;
       }
 
-      /* FIX: Apply robust overflow suppression to prevent horizontal scroll */
-      /* Note: We keep this to ensure no other content causes issues */
       html,
       body {
         overflow-x: hidden !important;
@@ -26,7 +24,6 @@
         background: #0a0a0f;
       }
 
-      /* Utility Classes */
       .gradient-bg {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
@@ -53,7 +50,6 @@
         box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
       }
 
-      /* Animations */
       .floating {
         animation: floating 3s ease-in-out infinite;
       }
@@ -154,10 +150,8 @@
         height: 500px;
         background: #764ba2;
         top: 50%;
-        right: 0; /* Anchor the right edge to the viewport edge */
-        transform: translateX(
-          50%
-        ); /* Shift it 50% of its own width (250px) to the right */
+        right: 0;
+        transform: translateX(50%);
       "
     ></div>
     <div
@@ -195,7 +189,12 @@
               />
             </svg>
           </button>
-          <div class="text-2xl font-bold gradient-text">Skill Factorial</div>
+          <a
+            href="https://skillfactorial.com"
+            class="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
+          >
+            Skill Factorial
+          </a>
         </div>
 
         <div class="hidden md:flex space-x-8 items-center">
@@ -214,7 +213,7 @@
           <button
             class="gradient-bg px-6 py-2 rounded-full hover:opacity-90 transition cta-redirect"
           >
-            Get Started
+            Start Booster
           </button>
         </div>
 
@@ -257,11 +256,6 @@
             >Courses</a
           >
           <a
-            href="#placement"
-            class="text-xl hover:text-purple-400 transition mobile-nav-link"
-            >Placement Prep</a
-          >
-          <a
             href="#pricing"
             class="text-xl hover:text-purple-400 transition mobile-nav-link"
             >Pricing</a
@@ -274,7 +268,7 @@
           <button
             class="gradient-bg px-6 py-3 rounded-full text-xl font-semibold hover:opacity-90 transition cta-redirect mt-4"
           >
-            Get Started
+            Start Booster
           </button>
         </div>
       </div>
@@ -285,19 +279,19 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="fade-in order-2 md:order-1">
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              Master Skills<br />
-              <span class="gradient-text">In Just 30 Days</span>
+              Practice Core Tech Skills<br />
+              <span class="gradient-text">With Smart Quizzes</span>
             </h1>
             <p class="text-xl text-gray-300 mb-8">
-              Transform your career with intensive bootcamps, interactive
-              quizzes, and real-world capstone projects. Built for students and
-              working professionals.
+              Skill Factorial is a quiz-first learning platform. Practice
+              topic-wise questions, track your progress, and get
+              exam-ready—without long videos.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button
                 class="gradient-bg px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition pulse-glow cta-redirect"
               >
-                Start Learning at ₹999 →
+                Start Booster at ₹99 →
               </button>
             </div>
           </div>
@@ -306,35 +300,16 @@
             <div class="glass rounded-3xl overflow-hidden glow">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                alt="Students learning together"
+                alt="Students practicing quizzes"
                 class="w-full h-auto"
               />
             </div>
             <div class="absolute -bottom-6 -left-6 glass p-4 rounded-2xl">
-              <div class="text-3xl font-bold gradient-text">Happy</div>
-              <div class="text-sm text-gray-400">Learners</div>
+              <div class="text-3xl font-bold gradient-text">Quiz</div>
+              <div class="text-sm text-gray-400">First Learning</div>
             </div>
           </div>
         </div>
-
-        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-          <div class="glass p-6 rounded-2xl card-hover">
-            <div class="text-4xl font-bold gradient-text">10K+</div>
-            <div class="text-gray-400 mt-2">Students</div>
-          </div>
-          <div class="glass p-6 rounded-2xl card-hover">
-            <div class="text-4xl font-bold gradient-text">15+</div>
-            <div class="text-gray-400 mt-2">Courses</div>
-          </div>
-          <div class="glass p-6 rounded-2xl card-hover">
-            <div class="text-4xl font-bold gradient-text">100%</div>
-            <div class="text-gray-400 mt-2">Assured Success Rate</div>
-          </div>
-          <div class="glass p-6 rounded-2xl card-hover">
-            <div class="text-4xl font-bold gradient-text">24/7</div>
-            <div class="text-gray-400 mt-2">Support</div>
-          </div>
-        </div> -->
       </div>
     </section>
 
@@ -344,7 +319,7 @@
           Why Choose <span class="gradient-text">Skill Factorial</span>
         </h2>
         <p class="text-center text-gray-400 text-xl mb-16">
-          Everything you need to excel in tech
+          Focused, quiz-based practice for faster learning
         </p>
         <div
           id="features-container"
@@ -356,10 +331,10 @@
     <section id="courses" class="py-20 px-6">
       <div class="container mx-auto">
         <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
-          Master <span class="gradient-text">In-Demand Skills</span>
+          Practice <span class="gradient-text">In-Demand Skills</span>
         </h2>
         <p class="text-center text-gray-400 text-xl mb-16">
-          Choose from our comprehensive tech curriculum
+          Choose a subject and start solving topic-wise quizzes
         </p>
         <div
           id="courses-container"
@@ -380,12 +355,12 @@
     <section id="pricing" class="py-20 px-6">
       <div class="container mx-auto">
         <h2 class="text-5xl md:text-6xl font-bold text-center mb-4">
-          Start Your Journey for <span class="gradient-text">₹999</span>
+          Start Practicing from <span class="gradient-text">₹99</span>
         </h2>
         <p class="text-center text-gray-400 text-xl mb-16">
-          Everything included. No hidden fees.
+          Three simple plans. Only Booster is live now — others are coming soon.
         </p>
-        <div id="pricing-container" class="max-w-4xl mx-auto"></div>
+        <div id="pricing-container" class="container mx-auto"></div>
       </div>
     </section>
 
@@ -395,7 +370,7 @@
           Get in <span class="gradient-text">Touch</span>
         </h2>
         <p class="text-center text-gray-400 text-xl mb-12">
-          We'd love to hear from you
+          Have questions about Booster or upcoming plans?
         </p>
         <div class="glass p-8 rounded-3xl mx-auto max-w-md">
           <h3 class="text-2xl font-bold mb-6">Contact Details</h3>
@@ -407,64 +382,123 @@
     <footer class="py-10 px-6 text-center text-gray-500 glass">
       <div class="container mx-auto">
         <p>&copy; 2024 Skill Factorial. All rights reserved.</p>
-        <p class="mt-2 text-sm">Made with 💜 and Tailwind CSS.</p>
       </div>
     </footer>
 
     <script>
       const REDIRECT_URL = "https://learn.skillfactorial.com";
 
-      // --- Data Definitions (Same as before) ---
+      // --- Data Definitions ---
+
+      // Now aligned to quiz-only + future plans
       const features = [
         {
-          emoji: "🚀",
-          title: "30-Day Bootcamps",
-          description:
-            "Intensive, structured learning paths that take you from basics to mastery in just one month. Every bootcamp includes hands-on projects and real-world applications.",
-        },
-        {
           emoji: "🎯",
-          title: "Interactive Quizzes",
+          title: "Quiz-First Learning",
           description:
-            "Test your knowledge, revise concepts faster, and track your progress. Our adaptive quizzes help you identify weak areas and reinforce learning.",
-        },
-        {
-          emoji: "💼",
-          title: "Capstone Projects",
-          description:
-            "Build portfolio-worthy projects that showcase your skills to employers. Get hands-on experience with industry-standard tools and frameworks.",
-        },
-        {
-          emoji: "💬",
-          title: "Doubt Solving",
-          description:
-            "Stuck on a concept? Our expert mentors are available 24/7 to help you overcome any challenge. Get personalized support when you need it.",
+            "Skip long videos. Practice topic-wise questions that mirror interviews and exams.",
         },
         {
           emoji: "📊",
-          title: "Skill Assessment",
+          title: "Progress Tracking",
           description:
-            "Know exactly where you stand. Our comprehensive assessments help you understand your strengths and areas for improvement.",
+            "See your best scores per quiz and improve over time with multiple attempts.",
         },
         {
-          emoji: "🎓",
-          title: "Certificates",
+          emoji: "🧠",
+          title: "Concept Recall",
           description:
-            "Earn industry-recognized certificates upon completion. Add them to your LinkedIn profile and stand out to recruiters.",
+            "Strengthen your fundamentals using active recall and spaced practice.",
+        },
+        {
+          emoji: "⚡",
+          title: "Fast Revision",
+          description:
+            "Quickly revise core concepts before tests, exams, or interviews.",
+        },
+        {
+          emoji: "🏆",
+          title: "Interview Focused",
+          description:
+            "Practice question patterns commonly seen in technical assessments.",
+        },
+        {
+          emoji: "🧩",
+          title: "Topic-Wise Quizzes",
+          description:
+            "Break large subjects into small quiz modules and focus where you’re weak.",
         },
       ];
 
       const courses = [
-        { emoji: "🐍", name: "Python", subtitle: "Backend & AI" },
-        { emoji: "☕", name: "Java", subtitle: "Enterprise Apps" },
+        { emoji: "🐍", name: "Python", subtitle: "Backend & Basics" },
+        { emoji: "☕", name: "Java", subtitle: "Core & OOP" },
         { emoji: "⚛️", name: "React JS", subtitle: "Modern Web" },
         { emoji: "📱", name: "Flutter", subtitle: "Mobile Apps" },
-        { emoji: "🤖", name: "Machine Learning", subtitle: "AI Models" },
+        { emoji: "🤖", name: "Machine Learning", subtitle: "ML Concepts" },
         { emoji: "📊", name: "Data Science", subtitle: "Analytics" },
-        { emoji: "🧠", name: "AI", subtitle: "Deep Learning" },
+        { emoji: "🧠", name: "AI", subtitle: "Neural Basics" },
         { emoji: "🗄️", name: "SQL & NoSQL", subtitle: "Databases" },
         { emoji: "🔗", name: "Node.js", subtitle: "Backend Dev" },
-        { emoji: "☁️", name: "Cloud & DevOps", subtitle: "AWS, Azure" },
+        { emoji: "☁️", name: "Cloud & DevOps", subtitle: "Foundations" },
+      ];
+
+      const pricingPlans = [
+        {
+          title: "Booster",
+          subtitle: "Quizzes Only · Live Now",
+          currentPrice: "₹99",
+          originalPrice: "₹200",
+          discountPercent: "50% OFF",
+          offerText: "Focused quiz practice for one tech skill",
+          features: [
+            "Access quizzes for one selected subject",
+            "Multiple attempts to improve your score",
+            "Progress tracking in your profile",
+            "New quizzes added over time for that subject",
+          ],
+          buttonText: "Start Booster",
+          isBestValue: true,
+          badgeText: "LIVE",
+          isComingSoon: false,
+        },
+        {
+          title: "Accelerator",
+          subtitle: "Quizzes + Projects (Coming Soon)",
+          currentPrice: "Coming Soon",
+          originalPrice: "",
+          discountPercent: "",
+          offerText: "Structured 90-day plan with projects (coming soon)",
+          features: [
+            "90-day structured learning",
+            "Projects + practice quizzes",
+            "Guided roadmap",
+            "Details will be announced soon",
+          ],
+          buttonText: "Coming Soon",
+          isBestValue: false,
+          badgeText: "",
+          isComingSoon: true,
+        },
+        {
+          title: "Intensive",
+          subtitle: "Career Track (Coming Soon)",
+          currentPrice: "Coming Soon",
+          originalPrice: "",
+          discountPercent: "",
+          offerText:
+            "Long-term, career-focused path with deeper support (coming soon)",
+          features: [
+            "Deep-dive curriculum",
+            "Interview preparation",
+            "Extra guidance",
+            "Details will be announced soon",
+          ],
+          buttonText: "Coming Soon",
+          isBestValue: false,
+          badgeText: "",
+          isComingSoon: true,
+        },
       ];
 
       const contactInfo = {
@@ -478,19 +512,19 @@
           {
             emoji: "📞",
             title: "Phone",
-            text: "+91 8778605825",
-            link: "tel:+918778605825",
+            text: "+91 9999999999",
+            link: "tel:+919999999999",
           },
           {
             emoji: "📱",
-            title: "Whatsapp",
+            title: "WhatsApp",
             text: "+91 9999999999",
             link: "https://wa.me/919999999999",
           },
           {
             emoji: "📍",
             title: "Location",
-            text: "Skill Factorial, Near to Archid Tower, Baner, Pune-422045",
+            text: "Skill Factorial, Hyderabad, India",
             link: null,
           },
         ],
@@ -501,7 +535,7 @@
           src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
           alt: "Learning analytics dashboard",
         },
-        floatingBadge: { title: "Faster", subtitle: "Learning" },
+        floatingBadge: { title: "Quiz", subtitle: "Insights" },
         contentTitle:
           'Why Our <span class="gradient-text">Quiz-Based Learning</span> Works',
         points: [
@@ -509,62 +543,38 @@
             emoji: "⚡",
             title: "Rapid Concept Revision",
             description:
-              "Cover entire topics in record time. Our quizzes help you revise complex concepts faster than traditional methods.",
+              "Cover entire topics quickly. Use quizzes to revise instead of watching hours of content.",
           },
           {
             emoji: "🎯",
-            title: "Pinpoint Your Weaknesses",
+            title: "Pinpoint Weaknesses",
             description:
-              "Identify exactly where you need more practice. Our adaptive system tracks your performance and highlights improvement areas.",
+              "See exactly which topics need more work based on your quiz performance.",
           },
           {
             emoji: "📈",
             title: "Track Real Progress",
             description:
-              "See your improvement over time with detailed analytics. Know exactly where you stand compared to peers.",
+              "Compare your latest scores with previous attempts and see improvement.",
           },
           {
             emoji: "🧠",
             title: "Boost Retention",
             description:
-              "Spaced repetition and active recall ensure you remember what you learn. Retain knowledge for the long term.",
+              "Active recall via quizzes helps you remember concepts much longer.",
           },
           {
             emoji: "💪",
             title: "Build Confidence",
             description:
-              "Regular practice builds muscle memory and confidence. Walk into interviews knowing you've mastered the material.",
+              "Regular practice builds confidence before exams and interviews.",
           },
           {
             emoji: "🏆",
             title: "Interview Ready",
             description:
-              "Practice questions mirror real interview scenarios. Be prepared for technical assessments and coding challenges.",
+              "Question patterns are designed to be close to real technical rounds.",
           },
-        ],
-      };
-
-      const pricing = {
-        isBestValue: true,
-        badgeText: "BEST VALUE",
-        title: "30-Day Bootcamp Package",
-        currentPrice: "₹999",
-        originalPrice: "₹2,000",
-        discountPercent: "50% OFF",
-        offerText: "Limited time offer - Expires soon!",
-        buttonText: "Enroll Now - Limited Seats",
-        footerNote: "⏰ only few seats left | Offer expires soon",
-        features: [
-          "30-day intensive bootcamp access",
-          "Unlimited interactive quizzes",
-          "Hands-on capstone project",
-          "24/7 doubt solving support",
-          "Expert mentor guidance",
-          "Comprehensive skill assessments",
-          "Industry-recognized certificate",
-          "Lifetime access to materials",
-          "Career guidance & resume review",
-          "Private community access",
         ],
       };
 
@@ -631,64 +641,92 @@
 
       function renderPricing() {
         const pricingContainer = document.getElementById("pricing-container");
-        const half = Math.ceil(pricing.features.length / 2);
-        const col1Features = pricing.features.slice(0, half);
-        const col2Features = pricing.features.slice(half);
+        pricingContainer.className =
+          "grid grid-cols-1 md:grid-cols-3 gap-8 mt-12";
 
-        const renderFeaturesList = (features) =>
-          features
-            .map(
-              (feature) => `
-              <div class="flex items-start gap-3">
-                  <span class="text-green-400 text-xl">✓</span>
-                  <span>${feature}</span>
-              </div>
+        pricingContainer.innerHTML = pricingPlans
+          .map((plan) => {
+            const disabledClass = plan.isComingSoon
+              ? "opacity-60 cursor-not-allowed"
+              : "";
+            const buttonAttr = plan.isComingSoon ? "disabled" : "";
+            const buttonLabel = plan.isComingSoon
+              ? "Coming Soon"
+              : plan.buttonText;
+
+            return `
+    <div class="glass p-6 rounded-3xl glow relative overflow-hidden flex flex-col h-full border border-white/10 ${
+      plan.isBestValue ? "border-purple-500 scale-105 z-10 bg-white/10" : ""
+    }">
+        ${
+          plan.badgeText
+            ? `
+          <div class="absolute top-0 right-0 gradient-bg text-white px-4 py-1 rounded-bl-2xl font-bold text-xs">
+            ${plan.badgeText}
+          </div>`
+            : ""
+        }
+        
+        <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold mb-1">${plan.title}</h3>
+            <p class="text-purple-400 text-xs font-semibold uppercase tracking-wider mb-4">
+              ${plan.subtitle}
+            </p>
+            <div class="flex flex-col items-center justify-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-4xl font-black gradient-text">
+                      ${plan.currentPrice}
+                    </span>
+                    ${
+                      plan.originalPrice
+                        ? `<span class="text-gray-500 line-through text-lg">${plan.originalPrice}</span>`
+                        : ""
+                    }
+                </div>
+                ${
+                  plan.discountPercent
+                    ? `<span class="text-green-400 text-xs font-bold mt-1">${plan.discountPercent}</span>`
+                    : ""
+                }
+            </div>
+        </div>
+
+        <div class="space-y-3 mb-8 flex-grow">
+            ${plan.features
+              .map(
+                (feature) => `
+                <div class="flex items-start gap-3 text-sm">
+                    <span class="text-green-400 text-lg">✓</span>
+                    <span class="text-gray-300 leading-tight">${feature}</span>
+                </div>
             `
-            )
-            .join("");
+              )
+              .join("")}
+        </div>
 
-        pricingContainer.innerHTML = `
-          <div class="glass p-8 sm:p-10 rounded-3xl glow relative overflow-hidden">
+        <div class="text-center">
+            <button
+              class="px-6 py-3 rounded-full text-lg font-bold w-full ${
+                plan.isComingSoon
+                  ? "bg-gray-700 text-gray-300 " + disabledClass
+                  : "gradient-bg hover:scale-105 transition cta-redirect"
+              }"
+              ${buttonAttr}
+            >
+                ${buttonLabel}
+            </button>
+            <p class="text-[10px] text-gray-500 mt-3">
               ${
-                pricing.isBestValue
-                  ? `<div class="absolute top-0 right-0 gradient-bg text-white px-6 py-2 rounded-bl-3xl font-bold">${pricing.badgeText}</div>`
-                  : ""
+                plan.isComingSoon
+                  ? "offering · Details will be announced"
+                  : "Limited time launch pricing for Booster"
               }
-              <div class="text-center mb-8">
-                  <h3 class="text-3xl font-bold mb-4">${pricing.title}</h3>
-                  <div class="flex flex-wrap items-center justify-center gap-4">
-                      <span class="text-5xl font-black gradient-text">${
-                        pricing.currentPrice
-                      }</span>
-                      <span class="text-gray-500 line-through text-2xl">${
-                        pricing.originalPrice
-                      }</span>
-                      <span class="gradient-bg px-4 py-2 rounded-full text-sm font-bold">${
-                        pricing.discountPercent
-                      }</span>
-                  </div>
-                  <p class="text-gray-400 mt-4">${pricing.offerText}</p>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div class="space-y-4">${renderFeaturesList(
-                    col1Features
-                  )}</div>
-                  <div class="space-y-4">${renderFeaturesList(
-                    col2Features
-                  )}</div>
-              </div>
-
-              <div class="text-center mt-10">
-                  <button class="gradient-bg px-12 py-4 rounded-full text-xl font-bold hover:scale-105 transition pulse-glow w-full sm:w-auto cta-redirect">
-                      ${pricing.buttonText}
-                  </button>
-                  <p class="text-sm text-gray-400 mt-4">${
-                    pricing.footerNote
-                  }</p>
-              </div>
-          </div>
-        `;
+            </p>
+        </div>
+    </div>
+  `;
+          })
+          .join("");
       }
 
       function renderCourses() {
@@ -746,7 +784,6 @@
 
         const toggleMenu = () => {
           mobileMenu.classList.toggle("hidden");
-          // Toggling overflow-hidden on body stops the background content from scrolling when the menu is open
           document.body.classList.toggle("overflow-hidden");
         };
 
@@ -758,15 +795,12 @@
         });
       }
 
-      // Consolidated DOMContentLoaded listener
       document.addEventListener("DOMContentLoaded", function () {
         renderCourses();
         renderContactInfo();
         renderPricing();
         renderFeatures();
         renderBenefits();
-
-        // Interaction setup
         setupCTARedirects();
         setupMobileMenu();
       });
